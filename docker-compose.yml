@@ -1,18 +1,10 @@
-version: '3'
+version: '3.3'
 services:
-
   ora2pg:
-    build:
-      context: .
-#    image: georgmoser/ora2pg
+    image: ora2pg:latest
     container_name: ora2pg
     network_mode: "host"
     volumes:
-      - ora2pg-data:/data
-      - ./config:/config
-    environment:
-      - CONFIG_LOCATION=config/ora2pg.conf
+      - './data:/data'
+      - './config:/config'
 
-
-volumes:
-  ora2pg-data:
